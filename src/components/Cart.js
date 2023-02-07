@@ -15,12 +15,13 @@ const Cart = () => {
   useEffect(() => {
     const getCommercialOffers = async () => {
       const response = await axios.get(
-        `http://henri-potier.xebia.fr/books/${isbn}/commercialOffers`
+        `http://henri-potier.xebia.fr/books/
+        ${isbn}/commercialOffers`
       );
       setTotalWithOffers(response.data);
     };
     getCommercialOffers();
-  });
+  }, [isbn]);
 
   //   const quantity = items.reduce((acc, curr) => {
   //     return acc + curr.quantity;
@@ -55,17 +56,25 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-        {totalPrice === 0 &&<h4>No products in your cart </h4>}
+      {totalPrice === 0 && <h4>No products in your cart </h4>}
       {!!items &&
         !!items.length &&
         items.map((item) => (
-            <div key={item.isbn}>
-                <h4>Original price : {item.price} € , Price after commercial: {item.price - totalWithOffers?.offers[0].value} €</h4>
-          <div className="cartItem">
-            <Image width={80} height={80} src={item.cover} alt="book" />
-            <div className="cartitemTitle">{item.title}</div>
-            <button onClick={() => removeItem(item.isbn)} className="addToCartBtn">Remove item</button>
-          </div>
+          <div key={item.isbn}>
+            <h4>
+              Original price : {item.price} € , Price after commercial:{" "}
+              {item.price - totalWithOffers?.offers[0].value} €
+            </h4>
+            <div className="cartItem">
+              <Image width={80} height={80} src={item.cover} alt="book" />
+              <div className="cartitemTitle">{item.title}</div>
+              <button
+                onClick={() => removeItem(item.isbn)}
+                className="addToCartBtn"
+              >
+                Remove item
+              </button>
+            </div>
           </div>
         ))}
 
