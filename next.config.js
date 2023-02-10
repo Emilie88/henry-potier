@@ -5,6 +5,9 @@ const nextConfig = {
     domains: ['henri-potier.xebia.fr']
   },
   distDir: 'dist',
+  'fontawesome-svg-core': {
+    license: 'free'
+  }
 
 }
 

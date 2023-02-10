@@ -26,49 +26,80 @@ a {
 .navbar {
   display: flex;
   padding: 25px;
-  justify-content: space-between;
-  background-color: #000;
+  justify-content: flex-end;
+  background-color: #4B6580;
   position: fixed;
+  z-index: 3;
   width: 100%;
 }
 
 .linkItem {
   font-size: 20px;
   color: #fff;
+  padding-left: 15px;
 }
-.linkItem:hover,
-:focus {
-  color: red;
-  background: #000;
+.linkItem:hover {
+color: #B62C17;
 }
 .navBarItems {
   display: flex;
-  width: 15%;
   justify-content: space-evenly;
 }
-.bookList {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 100px;
+.cardContainer{
+  background:rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+  overflow: hidden;
+  
 }
-.cardContainer {
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 10px;
-  width: 520px;
-  height: 700px;
+.hideCardDescription{
+  display: none;
 }
+.cardContainer:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.25);
+
+}
+/* .cardContainer:hover .hideCardDescription{
+  display: block;
+  color:#fff;
+  background-color: #272727;
+  height: 500px;
+  padding: 20px;
+  overflow-y: scroll;
+} */
+@media screen and (min-width: 22.5em) {
+  .bookList {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: stretch;
+      gap: 20px;
+      padding: 130px 30px 30px 30px;
+      background-color: #090A03;
+  }
+
+  .cardContainer {
+      flex: 0 1 100%;
+  }
+}
+@media screen and (min-width: 40em){
+  .bookList{
+    padding: 130px 50px 50px 50px;
+  }
+  .cardContainer {
+    flex: 0 1 calc(50% - 1em);
+}
+}
+@media screen and (min-width: 60em) {
+  .cardContainer {
+      flex: 0 1 calc(25% - 1em);
+      height: 500px;
+  }
+}
+
 .titleCard {
   padding: 10px;
 }
-.cardDescription {
-  overflow: auto;
-  padding: 10px;
-}
+
 .cart-container {
   height: 100vh;
   width: 100vw;
@@ -78,14 +109,17 @@ a {
 
 .addToCartContent {
   display: flex;
-  justify-content: space-between;
-  padding: 10px;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-right: 10px;
+  position: relative;
+  color: #fff;
+  bottom: 95px;
 }
 .addToCartBtn {
   padding: 7px;
-  height: 40px;
   color: #fff;
-  background-color: #007283;
+  background-color: #1F497D;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -94,7 +128,7 @@ a {
 }
 .addToCartBtn:hover,
 :focus {
-  background-color: rgb(138, 6, 4);
+  background-color: #B62C17;
 }
 .cartItem {
   display: flex;
@@ -107,5 +141,7 @@ a {
   padding: 10px;
 }
 .total{
-  padding-top: 20px;
+  padding: 20px;
+  color: #fff;
+  background-color: #090A03;
 }

@@ -30,9 +30,8 @@ const Products = () => {
             cover={product.cover}
             synopsis={product.synopsis}
             isbn={product.isbn}
-            
+            cart
           />
-         
           </>
         ))}
     </div>

@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { Context } from "./context/context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
 const { default: Link } = require("next/link");
 
@@ -11,23 +13,14 @@ const Navbar = () => {
     return acc + curr.quantity;
   }, 0);
   return (
-    
     <nav className="navbar">
-      <div className="linkItem">
-     
-        <Link href="/" className="linkItem">
-          Henri Potier
-        </Link>
-      </div>
-      <div className="navBarItems">
         <Link href="/" className="linkItem">
           Books
         </Link>
         <Link href="/cart" className="linkItem">
-          Cart 
-          <span style={{paddingLeft: '10px'}}>{quantity} products</span>
+        <FontAwesomeIcon icon={faCartShopping} /> 
+          <span style={{paddingLeft: '10px'}}>{quantity} items</span>
         </Link>
-      </div>
     </nav>
   );
 };
